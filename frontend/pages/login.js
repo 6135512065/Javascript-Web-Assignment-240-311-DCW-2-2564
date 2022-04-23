@@ -1,8 +1,5 @@
-import Head from 'next/head'
-import Layout from '../components/layout'
 import { useState } from 'react'
 import Navbar from '../components/navbar'
-import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import config from '../config/config'
 
@@ -29,32 +26,10 @@ export default function Login({ token }) {
     }
 
     const loginForm = () => (
-        /*<div className={styles.gridContainer}>
-            <div>
-                Username:
-            </div>
-            <div>
-                <input type="text"
-                    name="username"
-                    placeholder="username"
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </div>
-            <div>
-                Password:
-            </div>
-            <div>
-                <input type="password"
-                    name="password"
-                    placeholder="password"
-                    onChange={(e) => setPassword(e.target.value)} />
-            </div>
-        </div>*/
-
         <div class="bg-teal-100 flex">
             <div class="flex-col flex ml-auto mr-auto items-center w-full lg:w-2/3 md:w-3/5">
                 <br></br><br></br>
-                <h5 class="text-center text-teal-900 text-6xl font-medium mb-2">Login</h5>
+                <h5 class="text-center text-teal-900 text-6xl font-medium mb-2">Login Form</h5>
                 <div class="text-center text-teal-900 text-xl font-medium mb-2">
                     <br></br>
                     Status :  {status}
@@ -76,7 +51,6 @@ export default function Login({ token }) {
                             onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
-
                     <div class="flex flex-wrap items-stretch w-full mb-4 relative h-20 bg-teal-200 items-center rounded mb-6 pr-10">
                         <div class="flex -mr-px justify-center w-15 p-4">
                             <span
@@ -91,7 +65,6 @@ export default function Login({ token }) {
                             onChange={(e) => setPassword(e.target.value)} />
                     </div>
                 </form>
-
                 <div class="flex justify-center">
                     <div class="flex items-stretch justify-center px-6 py-8">
                         <button type="button" class=" inline-block px-6 py-2.5 bg-teal-900 text-white font-medium text-lg leading-tight uppercase rounded shadow-md 
