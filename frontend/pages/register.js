@@ -7,6 +7,7 @@ export default function Register({ token }) {
 
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
     const [password, setPassword] = useState('')
     const [status, setStatus] = useState('')
 
@@ -21,7 +22,7 @@ export default function Register({ token }) {
     const register = async (req, res) => {
         try {
             let result = await axios.post(`${config.URL}/register`,
-                { username, email, password })
+                { username, email, password, phone })
             console.log('result: ', result)
             console.log('result.data:  ', result.data)
             console.log('token:  ', token)
@@ -72,6 +73,21 @@ export default function Register({ token }) {
                             class="bg-teal-100 flex-shrink flex-grow flex-auto leading-normal flex-1 w-px border-0 h-15 border-grey-light rounded rounded-l-none px-3 self-center relative  font-roboto text-xl outline-none"
                             placeholder="email"
                             onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+
+                    <div class="flex flex-wrap items-stretch w-full mb-4 relative h-20 bg-teal-200 items-center rounded mb-6 pr-10">
+                        <div class="flex -mr-px justify-center w-15 p-4">
+                            <span
+                                class="flex items-center leading-normal bg-teal-200 px-3 border-0 rounded rounded-r-none text-2xl text-gray-600">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                        </div>
+                        <input
+                            type="text"
+                            class="bg-teal-100 flex-shrink flex-grow flex-auto leading-normal flex-1 w-px border-0 h-15 border-grey-light rounded rounded-l-none px-3 self-center relative  font-roboto text-xl outline-none"
+                            placeholder="phone"
+                            onChange={(e) => setPhone(e.target.value)}
                         />
                     </div>
 

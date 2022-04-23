@@ -17,15 +17,13 @@ passport.use(
         console.log('User: ', username, password)
         const index = db.checkExistingUser(username)
         if (index !== db.NOT_FOUND && await db.isValidUser(username, password)) {
-            const { id, username, email } = users.users[index]
+            const { id, username, email, phone } = users.users[index]
             return cb(null,
-                { id, username, email },
+                { id, username, email, phone },
                 { message: 'Logged In Successfully' })
         }
         else
             return cb(null, false, { message: 'Incorrect user or password.' })
-
-
     }));
 
 passport.use(
@@ -40,9 +38,9 @@ passport.use(
                 const index = db.checkExistingUser(jwtPayload.username)
                 if (index !== db.NOT_FOUND) {
                     // Strip password out
-                    const { id, username, email } = users.users[index]
+                    const { id, username, email, phone } = users.users[index]
                                     //Return to caller via req.user
-                    return cb(null, { id, username, email }); 
+                    return cb(null, { id, username, email, phone }); 
                 } else {
                     return cb(null, false);
                 }

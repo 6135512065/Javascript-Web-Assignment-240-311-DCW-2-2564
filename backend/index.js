@@ -1,4 +1,3 @@
-
 const express = require('express'),
     app = express(),
     passport = require('passport'),
@@ -21,7 +20,6 @@ router.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 // router.use(cors())
 router.use(express.json())
 router.use(express.urlencoded({ extended: false }))
-
 
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', { session: false }, (err, user, info) => {
@@ -75,15 +73,15 @@ router.post('/register',
     async (req, res) => {
         try {
             const SALT_ROUND = 10
-            const { username, email, password } = req.body 
-            if (!username || !email || !password)
+            const { username, email, password, phone } = req.body 
+            if (!username || !email || !password || !phone)
                 return res.json( {message: "Cannot register with empty string"})
             if (db.checkExistingUser(username) !== db.NOT_FOUND)
                 return res.json({ message: "Duplicated user" })
 
             let id = (users.users.length) ? users.users[users.users.length - 1].id + 1 : 1
             hash = await bcrypt.hash(password, SALT_ROUND)
-            users.users.push({ id, username, password: hash, email })
+            users.users.push({ id, username, password: hash, email, phone })
             res.status(200).json({ message: "Register success" })
         } catch {
             res.status(422).json({ message: "Cannot register" })
@@ -110,4 +108,3 @@ app.use((err, req, res, next) => {
 
 // Start Server
 app.listen(port, () => console.log(`Server is running on port ${port}`))
-
