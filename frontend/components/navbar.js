@@ -24,10 +24,6 @@ const Navbar = () => (
                     Profile</a>
             </div>
             <div>
-                <a href="/getConfig" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 mr-2">
-                    Config</a>
-            </div>
-            <div>
                 <a href="/register" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 mr-2">
                     Register</a>
             </div>
