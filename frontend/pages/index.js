@@ -1,7 +1,6 @@
 import Navbar from '../components/navbar'
 
 export default function Home({ token }) {
-
   return (
     <body class="bg-teal-100">
       <Navbar />

@@ -22,7 +22,7 @@ export default function Logout({ token }) {
             <Navbar />
             <br></br><br></br><br></br><br></br><br></br><br></br>
             <div class="flex justify-center">
-                <div class="rounded-lg shadow-lg bg-teal-300">
+                <div class="rounded-lg shadow-xl bg-teal-200">
                     <div class="p-6">
                         <br></br>
                         <h5 class="text-center text-teal-900 text-6xl font-medium mb-2">Logout Successful</h5>
